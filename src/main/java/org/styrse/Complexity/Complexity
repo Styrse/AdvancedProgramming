@@ -1,0 +1,24 @@
+--- ListPerformance ---
+
+ArrayList ligger sammenhængende i hukommelsen, hvilket gør direkte opslag muligt, og derfor er get(index) O(1).
+LinkedList består af spredte noder, som er forbundet med referencer, og derfor skal listen gennemløbes for at finde et element, hvilket gør get(index) O(n).
+
+
+--- SearchPerformance ---
+
+ArrayList.contains(x) er O(n), fordi den skal tjekke elementerne én efter én, indtil den finder værdien eller når til slutningen.
+HashSet.contains(x) er O(1), fordi den bruger en hashværdi til hurtigt at finde elementet uden at gennemløbe hele samlingen.
+Derfor er HashSet meget hurtigere til søgning end ArrayList.
+
+
+--- Indsættelse/sletning ---
+
+Indsættelse og sletning i en ArrayList er O(n), fordi elementerne ligger i et array.
+Når man indsætter eller sletter midt i listen, skal alle efterfølgende elementer flyttes én plads frem eller tilbage.
+
+Selv hvis man finder positionen hurtigt (fx med O(log n)), ændrer det ikke på,
+at selve indsættelsen eller sletningen kræver at flytte mange elementer.
+
+I en LinkedList sker indsættelse og sletning ved at ændre referencer mellem noder,
+så der ikke skal flyttes elementer. Derfor er selve operationen O(1),
+men det tager stadig O(n) at finde positionen.

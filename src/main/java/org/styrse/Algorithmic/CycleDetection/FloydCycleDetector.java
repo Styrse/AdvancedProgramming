@@ -1,4 +1,4 @@
-package org.styrse.Algorithmic;
+package org.styrse.Algorithmic.CycleDetection;
 
 public class FloydCycleDetector {
   private FloydCycleDetector() {}
@@ -8,6 +8,7 @@ public class FloydCycleDetector {
     Node fast = head;
 
     while (fast != null && fast.next != null) {
+      // Call next nodes to "move"
       slow = slow.next;
       fast = fast.next.next;
       if (slow == fast) return true;

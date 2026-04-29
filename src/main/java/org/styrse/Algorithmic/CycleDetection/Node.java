@@ -1,4 +1,4 @@
-package org.styrse.Algorithmic;
+package org.styrse.Algorithmic.CycleDetection;
 
 public class Node {
   int value;

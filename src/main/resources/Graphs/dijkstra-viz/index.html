@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dijkstra - Visualisering (JS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">
+      Dijkstra (rettet, vægtet vejnet)
+      <span class="subtitle">- step-by-step visualisering i JavaScript</span>
+    </div>
+    <div class="controls">
+      <button id="prevBtn" type="button">Forrige</button>
+      <button id="nextBtn" type="button">Næste</button>
+      <button id="playBtn" type="button">Play</button>
+      <button id="resetBtn" type="button">Reset</button>
+      <div class="stepInfo" id="stepInfo">Trin: 0</div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="leftPanel">
+      <div class="panelTitle">
+        Graf
+        <span class="muted">Start: <b id="startCity"></b> · Slut: <b id="goalCity"></b></span>
+      </div>
+
+      <div class="graphWrap">
+        <svg id="graphSvg" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dijkstra graf visualisering"></svg>
+      </div>
+
+      <div class="hint">
+        Genveje: <kbd>Space</kbd> næste · <kbd>Left</kbd>/<kbd>Right</kbd> forrige/næste · <kbd>R</kbd> reset · <kbd>P</kbd> play/pause
+      </div>
+    </section>
+
+    <section class="rightPanel">
+      <div class="panelTitle">State</div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="cardTitle">Forklaring (trin)</div>
+          <div class="box" id="explanationBox"></div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">Priority Queue (snapshot)</div>
+          <div class="tableWrap tableWrapSmall">
+            <table class="table" id="queueTable">
+              <thead><tr><th>By</th><th>Dist</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panelTitle panelTitleTight">Distance-tabel</div>
+      <div class="tableWrap" id="distWrap">
+        <table class="table" id="distTable">
+          <thead><tr><th>By</th><th>Dist</th><th>Prev</th><th>Visited</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="legend">
+        <div><span class="dot unknown"></span> Ukendt</div>
+        <div><span class="dot frontier"></span> Frontier (i kø)</div>
+        <div><span class="dot current"></span> Current</div>
+        <div><span class="dot visited"></span> Visited</div>
+        <div><span class="dot final"></span> Korteste rute</div>
+        <div><span class="line relax"></span> Relax-kant</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

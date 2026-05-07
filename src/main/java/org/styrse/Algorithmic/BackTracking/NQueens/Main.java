@@ -1,4 +1,4 @@
-package org.styrse.Algorithmic.BackTracking;
+package org.styrse.Algorithmic.BackTracking.NQueens;
 
 public class Main {
 

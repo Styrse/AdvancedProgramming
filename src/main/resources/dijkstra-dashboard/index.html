@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dijkstra Dashboard (Java + JS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">Dijkstra Dashboard (trin-for-trin)</div>
+    <div class="controls">
+      <button id="prevBtn" type="button">◀ Forrige</button>
+      <button id="nextBtn" type="button">Næste ▶ (SPACE)</button>
+      <button id="resetBtn" type="button">Reset (R)</button>
+      <div class="stepInfo" id="stepInfo">Step: 0</div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="leftPanel">
+      <div class="panelTitle">Vejnet (rettet, vægtet)</div>
+      <canvas id="graphCanvas" width="700" height="460"></canvas>
+      <div class="hint">SPACE: næste trin · R: reset</div>
+    </section>
+
+    <section class="rightPanel">
+      <div class="panelTitle">Tabel (Dijkstra-state)</div>
+      <table class="stateTable" id="stateTable">
+        <thead>
+        <tr>
+          <th>By</th>
+          <th>Dist</th>
+          <th>Prev</th>
+          <th>Visited</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="legend">
+        <div><span class="dot unknown"></span> Ukendt (grå)</div>
+        <div><span class="dot discovered"></span> Opdaget (gul)</div>
+        <div><span class="dot current"></span> Current (blå)</div>
+        <div><span class="dot visited"></span> Visited (grøn)</div>
+        <div><span class="dot final"></span> Final path (rød)</div>
+      </div>
+    </section>
+  </main>
+
+  <section class="bottom">
+    <div class="bottomCol">
+      <div class="panelTitle">Forklaring (aktuelt trin)</div>
+      <div class="box" id="explanationBox"></div>
+    </div>
+    <div class="bottomCol">
+      <div class="panelTitle">Priority Queue (kandidater)</div>
+      <div class="box">
+        <table class="queueTable" id="queueTable">
+          <thead>
+          <tr><th>By</th><th>Dist</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,4 +1,4 @@
-package org.styrse.Graphs;
+package org.styrse.Graphs.Dijkstra;
 
 import java.util.ArrayList;
 import java.util.HashMap;

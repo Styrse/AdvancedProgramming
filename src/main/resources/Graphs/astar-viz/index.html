@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A* visualisering</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>A* på et 8x8 grid</h1>
+      <p>
+        Start:
+        <select id="startSelect"></select>
+        · Mål:
+        <select id="goalSelect"></select>
+      </p>
+    </div>
+    <div class="controls">
+      <button id="prevBtn" type="button">Forrige</button>
+      <button id="nextBtn" type="button">Næste</button>
+      <button id="playBtn" type="button">Play</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="boardPanel">
+      <div class="panelTitle">Grid</div>
+      <div id="grid" class="grid" aria-label="A* grid visualisering"></div>
+      <div class="legend">
+        <span><i class="box road"></i> Vej</span>
+        <span><i class="box open"></i> Open set</span>
+        <span><i class="box visited"></i> Visited</span>
+        <span><i class="box current"></i> Aktuel celle</span>
+        <span><i class="box path"></i> Korteste vej</span>
+      </div>
+    </section>
+
+    <section class="infoPanel">
+      <div class="panelTitle">Status</div>
+      <div class="card">
+        <div id="stepInfo" class="stepInfo"></div>
+        <pre id="messageBox" class="messageBox"></pre>
+      </div>
+
+      <div class="card">
+        <h2>Byer</h2>
+        <ul class="cityList">
+          <li>N = Nordby</li>
+          <li>S = Sydby</li>
+          <li>Ø = Østby</li>
+          <li>V = Vestby</li>
+          <li>H = Havneby</li>
+          <li>M = Midtby</li>
+          <li>K = Skovby</li>
+          <li>B = Bakkeby</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

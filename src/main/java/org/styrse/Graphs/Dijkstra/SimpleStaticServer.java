@@ -1,4 +1,4 @@
-package org.styrse.Graphs;
+package org.styrse.Graphs.Dijkstra;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;

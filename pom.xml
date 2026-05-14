@@ -23,7 +23,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.styrse.Graphs.DijkstraPortfolioDemo</mainClass>
+                            <mainClass>org.styrse.Graphs.Dijkstra.DijkstraPortfolioDemo</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

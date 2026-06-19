@@ -7,6 +7,7 @@ public class Main {
   public static void main(String[] args) {
     int[] intArray = randomUniqueArray();
 
+    // Implemented Strategy pattern
     //Sorter sorter = new Sorter(new BubbleSortStrategy());
     //Sorter sorter = new Sorter(new MergeSortStrategy());
     Sorter sorter = new Sorter(new QuickSortStrategy());

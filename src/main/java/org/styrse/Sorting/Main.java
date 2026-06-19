@@ -7,26 +7,14 @@ public class Main {
   public static void main(String[] args) {
     int[] intArray = randomUniqueArray();
 
-    /*
-    for (int i = 0; i < intArray.length; i++) {
-      System.out.println(intArray[i]);
-    }
-
-    System.out.println("");
-
-    int[] sortedArray = mergeSort(intArray);
+    //Sorter sorter = new Sorter(new BubbleSortStrategy());
+    //Sorter sorter = new Sorter(new MergeSortStrategy());
+    Sorter sorter = new Sorter(new QuickSortStrategy());
+    int[] sortedArray = sorter.sort(intArray);
 
     for (int i = 0; i < sortedArray.length; i++) {
       System.out.println(sortedArray[i]);
     }
-     */
-
-    int[] quicksortedArray = quicksort(intArray);
-
-    for (int i = 0; i < quicksortedArray.length; i++) {
-      System.out.println(quicksortedArray[i]);
-    }
-
   }
 
   public static int[] randomUniqueArray() {
@@ -34,25 +22,29 @@ public class Main {
   }
 
   public static int[] randomUniqueIntArray(int length, int minInclusive, int maxInclusive) {
-    int rangeSize = (maxInclusive - minInclusive) + 1;
-    if (rangeSize < length) {
-      throw new IllegalArgumentException("Intervallet er for lille til at lave " + length + " unikke tal");
-    }
-
-    int[] pool = new int[rangeSize];
-    for (int i = 0; i < rangeSize; i++) {
-      pool[i] = minInclusive + i;
-    }
-
+    int[] numbers = new int[length];
     ThreadLocalRandom random = ThreadLocalRandom.current();
+
     for (int i = 0; i < length; i++) {
-      int j = random.nextInt(i, rangeSize);
-      int temp = pool[i];
-      pool[i] = pool[j];
-      pool[j] = temp;
+      int number;
+      do {
+        number = random.nextInt(minInclusive, maxInclusive + 1);
+      } while (contains(numbers, i, number));
+
+      numbers[i] = number;
     }
 
-    return Arrays.copyOf(pool, length);
+    return numbers;
+  }
+
+  private static boolean contains(int[] array, int length, int value) {
+    for (int i = 0; i < length; i++) {
+      if (array[i] == value) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public static int[] bubbleSort(int[] array) {
@@ -115,7 +107,7 @@ public class Main {
     return arrayToSort;
   }
 
-  private static int[] quicksort(int[] arrayToSort) {
+  public static int[] quicksort(int[] arrayToSort) {
     return quicksort(arrayToSort, 0, arrayToSort.length - 1);
   }
 
